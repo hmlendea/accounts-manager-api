@@ -12,7 +12,7 @@ namespace AccountsManager.DataAccess.Repositories
 
         T Get(string username);
 
-        void Update(T entity);
+        void Update(string username, T entity);
 
         void Remove(string username);
     }

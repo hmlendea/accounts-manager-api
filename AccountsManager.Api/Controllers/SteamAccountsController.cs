@@ -23,7 +23,6 @@ namespace AccountsManager.Controllers
             this.repository = repository;
         }
 
-        // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -32,35 +31,30 @@ namespace AccountsManager.Controllers
             return Ok(steamAccounts);
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{username}")]
+        public ActionResult<string> Get(string username)
         {
-            SteamAccount steamAccount = new SteamAccount();
-            steamAccount.Username = "testus";
-            steamAccount.Password = "testassword";
-            steamAccount.EmailAddress = "testus@test.com";
-            steamAccount.Country = "RO";
+            SteamAccount steamAccount = repository.Get(username).ToApiModel();
 
             return Ok(steamAccount);
         }
 
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] SteamAccount steamAccount)
         {
+            repository.Add(steamAccount.ToDataObject());
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{username}")]
+        public void Put(string username, [FromBody] SteamAccount steamAccount)
         {
+            repository.Update(username, steamAccount.ToDataObject());
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{username}")]
+        public void Delete(string username)
         {
+            repository.Remove(username);
         }
     }
 }

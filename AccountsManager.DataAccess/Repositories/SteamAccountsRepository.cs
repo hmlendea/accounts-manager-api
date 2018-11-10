@@ -61,16 +61,16 @@ namespace AccountsManager.DataAccess.Repositories
             return steamAccount;
         }
 
-        public void Update(SteamAccountEntity newSteamAccount)
+        public void Update(string username, SteamAccountEntity newSteamAccount)
         {
             IEnumerable<SteamAccountEntity> oldSteamAccounts = GetAll();
 
-            if (oldSteamAccounts.All(x => x.Username != newSteamAccount.Username))
+            if (oldSteamAccounts.All(x => x.Username != username))
             {
-                throw new EntityNotFoundException(newSteamAccount.Username, nameof(SteamAccountEntity));
+                throw new EntityNotFoundException(username, nameof(SteamAccountEntity));
             }
 
-            IList<SteamAccountEntity> newSteamAccounts = oldSteamAccounts.Where(x => x.Username != newSteamAccount.Username).ToList();
+            IList<SteamAccountEntity> newSteamAccounts = oldSteamAccounts.Where(x => x.Username != username).ToList();
             newSteamAccounts.Add(newSteamAccount);
 
             IEnumerable<string> lines = newSteamAccounts.Select(x => x.ToString());
