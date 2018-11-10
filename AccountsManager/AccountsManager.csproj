@@ -15,5 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AccountsManager.Api\AccountsManager.Api.csproj" />
+    <ProjectReference Include="..\AccountsManager.DataAccess\AccountsManager.DataAccess.csproj" />
+    <ProjectReference Include="..\AccountsManager.Core\AccountsManager.Core.csproj" />
   </ItemGroup>
 </Project>

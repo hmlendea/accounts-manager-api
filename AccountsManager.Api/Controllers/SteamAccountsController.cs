@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
-using AccountsManager.API.Models;
+using AccountsManager.Api.Mapping;
+using AccountsManager.Api.Models;
+using AccountsManager.DataAccess.DataObjects;
+using AccountsManager.DataAccess.Repositories;
 
 namespace AccountsManager.Controllers
 {
@@ -13,17 +16,18 @@ namespace AccountsManager.Controllers
     [ApiController]
     public class SteamAccountsController : ControllerBase
     {
+        readonly IAccountsRepository<SteamAccountEntity> repository;
+
+        public SteamAccountsController(IAccountsRepository<SteamAccountEntity> repository)
+        {
+            this.repository = repository;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            SteamAccount steamAccount = new SteamAccount();
-            steamAccount.Username = "testus";
-            steamAccount.Password = "testassword";
-            steamAccount.EmailAddress = "testus@test.com";
-            steamAccount.Country = "RO";
-
-            List<SteamAccount> steamAccounts = new List<SteamAccount> { steamAccount };
+            IEnumerable<SteamAccount> steamAccounts = repository.GetAll().ToApiModels();
 
             return Ok(steamAccounts);
         }

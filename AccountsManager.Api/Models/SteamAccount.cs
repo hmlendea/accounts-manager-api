@@ -1,4 +1,6 @@
-namespace AccountsManager.API.Models
+using AccountsManager.DataAccess.DataObjects;
+
+namespace AccountsManager.Api.Models
 {
     public sealed class SteamAccount
     {

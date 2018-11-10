@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsManager", "Accounts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsManager.Api", "AccountsManager.Api\AccountsManager.Api.csproj", "{D4B63AE5-49DC-45DF-A2E3-1D312BFBBDDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsManager.DataAccess", "AccountsManager.DataAccess\AccountsManager.DataAccess.csproj", "{3129F46C-2856-412F-8971-52DDDC0644EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsManager.Core", "AccountsManager.Core\AccountsManager.Core.csproj", "{10C7B7F5-515C-46E9-AB72-FB78C0FCA96B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D4B63AE5-49DC-45DF-A2E3-1D312BFBBDDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B63AE5-49DC-45DF-A2E3-1D312BFBBDDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B63AE5-49DC-45DF-A2E3-1D312BFBBDDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3129F46C-2856-412F-8971-52DDDC0644EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3129F46C-2856-412F-8971-52DDDC0644EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3129F46C-2856-412F-8971-52DDDC0644EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3129F46C-2856-412F-8971-52DDDC0644EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C7B7F5-515C-46E9-AB72-FB78C0FCA96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C7B7F5-515C-46E9-AB72-FB78C0FCA96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C7B7F5-515C-46E9-AB72-FB78C0FCA96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C7B7F5-515C-46E9-AB72-FB78C0FCA96B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
