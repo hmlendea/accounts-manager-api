@@ -2,26 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 
-namespace accounts_manager_api.Controllers
+using AccountsManager.API.Models;
+
+namespace AccountsManager.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class SteamAccountsController : ControllerBase
     {
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            SteamAccount steamAccount = new SteamAccount();
+            steamAccount.Username = "testus";
+            steamAccount.Password = "testassword";
+            steamAccount.EmailAddress = "testus@test.com";
+            steamAccount.Country = "RO";
+
+            List<SteamAccount> steamAccounts = new List<SteamAccount> { steamAccount };
+
+            return Ok(steamAccounts);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            SteamAccount steamAccount = new SteamAccount();
+            steamAccount.Username = "testus";
+            steamAccount.Password = "testassword";
+            steamAccount.EmailAddress = "testus@test.com";
+            steamAccount.Country = "RO";
+
+            return Ok(steamAccount);
         }
 
         // POST api/values
